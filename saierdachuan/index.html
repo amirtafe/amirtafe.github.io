@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="塞尔达传说：灵魂轨迹 - 《塞尔达传说：织梦岛》重制版官方资讯与攻略合集，包含游戏背景、角色介绍、地图攻略及实用技巧。">
+    <meta name="keywords" content="塞尔达传说灵魂轨迹, 塞尔达传说织梦岛, 织梦岛攻略, 灵魂轨迹重制版, 任天堂">
+    <title>塞尔达传说灵魂轨迹-重制版深度解析与通关指南</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #2e7d32;
+            --secondary-color: #81c784;
+            --accent-color: #ffb74d;
+            --bg-color: #f1f8e9;
+            --text-color: #1b5e20;
+            --card-bg: #ffffff;
+            --border-radius: 12px;
+            --spacing-unit: 1rem;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Helvetica, 'PingFang SC', 'Microsoft YaHei', Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Layout */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        /* Header */
+        header {
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(5px);
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            font-weight: 600;
+            font-size: 1rem;
+            position: relative;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--primary-color);
+            transition: width 0.3s;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .cta-btn {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 0.6rem 1.5rem;
+            border-radius: 20px;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        .cta-btn:hover {
+            background-color: #1b5e20;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            overflow: hidden;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://picsum.photos/seed/zelda_hero/1920/1080.jpg') center/cover no-repeat;
+        }
+
+        .hero-content {
+            z-index: 2;
+            max-width: 800px;
+            padding: 2rem;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 0 4px 8px rgba(0,0,0,0.3);
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        .btn {
+            padding: 0.8rem 2rem;
+            border-radius: 30px;
+            font-weight: bold;
+            font-size: 1rem;
+            cursor: pointer;
+            border: none;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .btn-primary {
+            background-color: var(--accent-color);
+            color: #333;
+        }
+
+        .btn-secondary {
+            background-color: rgba(255,255,255,0.2);
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        /* Section Styling */
+        section {
+            padding: 4rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .section-title p {
+            color: #666;
+        }
+
+        /* Intro Grid */
+        .intro-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .intro-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        .intro-text p {
+            margin-bottom: 1rem;
+            text-align: justify;
+        }
+
+        .intro-features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .feature-item {
+            background: white;
+            padding: 1rem;
+            border-radius: var(--border-radius);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            text-align: center;
+        }
+
+        .feature-icon {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        /* Character Section */
+        .character-section {
+            background-color: white;
+        }
+
+        .char-container {
+            display: flex;
+            align-items: center;
+            gap: 4rem;
+            flex-wrap: wrap;
+        }
+
+        .char-image {
+            flex: 1;
+            min-width: 300px;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .char-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s;
+        }
+
+        .char-image:hover img {
+            transform: scale(1.05);
+        }
+
+        .char-info {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .char-info h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .char-role {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: var(--primary-color);
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        /* Map & Guide Grid */
+        .guide-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .guide-card {
+            background: white;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .guide-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-img {
+            height: 180px;
+            background-color: #ddd;
+            overflow: hidden;
+        }
+
+        .card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 1.5rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-tag {
+            font-size: 0.8rem;
+            color: var(--accent-color);
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .card-title {
+            font-size: 1.2rem;
+            margin-bottom: 0.8rem;
+            font-weight: 700;
+        }
+
+        .card-desc {
+            font-size: 0.95rem;
+            color: #555;
+            margin-bottom: 1.5rem;
+            flex: 1;
+        }
+
+        .card-link {
+            color: var(--primary-color);
+            font-weight: bold;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            background-color: #e8f5e9;
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: white;
+            margin-bottom: 1rem;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .faq-question {
+            padding: 1.2rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            background-color: #fff;
+            transition: background 0.2s;
+        }
+
+        .faq-question:hover {
+            background-color: #f9f9f9;
+        }
+
+        .faq-answer {
+            padding: 0 1.2rem 1.2rem;
+            color: #555;
+            display: none;
+            border-top: 1px solid #eee;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        .faq-item.active .faq-question {
+            color: var(--primary-color);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1b5e20;
+            color: white;
+            padding: 3rem 0;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-col h4 {
+            margin-bottom: 1.2rem;
+            font-size: 1.1rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-col ul li a {
+            color: #ccc;
+        }
+
+        .footer-col ul li a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .header-inner {
+                flex-direction: column;
+                height: auto;
+                padding: 1rem 0;
+                gap: 1rem;
+            }
+
+            nav ul {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+
+            .intro-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .char-container {
+                flex-direction: column-reverse;
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-inner">
+            <a href="#" class="logo">
+                <span>◆</span> 塞尔达传说灵魂轨迹
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#intro">游戏介绍</a></li>
+                    <li><a href="#characters">角色</a></li>
+                    <li><a href="#guide">攻略指南</a></li>
+                    <li><a href="#faq">常见问题</a></li>
+                </ul>
+            </nav>
+            <a href="#guide" class="cta-btn">开始探索</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1>塞尔达传说：灵魂轨迹</h1>
+                <p>重返梦幻之岛，在《塞尔达传说：织梦岛》重制版中体验全新的冒险。探索神秘洞穴，解开谜题，找回迷失的自我。</p>
+                <div class="hero-btns">
+                    <button class="btn btn-primary">查看详细攻略</button>
+                    <button class="btn btn-secondary">了解剧情背景</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Introduction Section -->
+        <section id="intro" class="container">
+            <div class="intro-grid">
+                <div class="intro-text">
+                    <h3>关于《塞尔达传说：灵魂轨迹》</h3>
+                    <p>《塞尔达传说：灵魂轨迹》（又译《塞尔达传说：织梦岛》）是任天堂经典作品的3D重制版。本作不仅保留了原作独特的绘画风格，还通过现代游戏引擎提升了画面表现力和操作手感。</p>
+                    <p>玩家将扮演林克，被海拉鲁的拉聂尔仙女误传到梦幻之岛，为了能够回家，必须探索岛屿的每一个角落，收集各种道具，并最终击败守护者达伊恩。</p>
+                    <div class="intro-features">
+                        <div class="feature-item">
+                            <span class="feature-icon">🎨</span>
+                            <h4>手绘风格</h4>
+                            <p>致敬原作的艺术美学</p>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-icon">⚔️</span>
+                            <h4>战斗系统</h4>
+                            <p>流畅的刀剑与盾牌操作</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="intro-image">
+                    <img src="https://picsum.photos/seed/zelda_intro/600/400.jpg" alt="塞尔达传说灵魂轨迹游戏画面" style="width: 100%; border-radius: 12px; box-shadow: 0 10px 20px rgba(0,0,0,0.1);">
+                </div>
+            </div>
+        </section>
+
+        <!-- Character Section -->
+        <section id="characters" class="character-section">
+            <div class="container">
+                <div class="section-title">
+                    <h2>核心角色介绍</h2>
+                    <p>在灵魂轨迹中，遇见那些陪伴你冒险的伙伴</p>
+                </div>
+                <div class="char-container">
+                    <div class="char-image">
+                        <img src="https://picsum.photos/seed/link_zelda/600/500.jpg" alt="林克与塞尔达">
+                    </div>
+                    <div class="char-info">
+                        <span class="char-role">主角</span>
+                        <h3>林克</h3>
+                        <p>在这个梦境世界中，林克需要利用他标志性的剑术和盾牌来对抗怪物。虽然失去了记忆，但他依然拥有保护自我的本能。</p>
+                        <br>
+                        <span class="char-role">向导</span>
+                        <h3>拉聂尔仙女</h3>
+                        <p>她将林克带到了这个神秘岛屿，并承诺只要他能通过试炼，就送他回家。她是玩家在游戏初期最重要的信息来源。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Guide Section -->
+        <section id="guide" class="container">
+            <div class="section-title">
+                <h2>探索与攻略</h2>
+                <p>新手入门必看与进阶技巧汇总</p>
+            </div>
+            <div class="guide-grid">
+                <article class="guide-card">
+                    <div class="card-img">
+                        <img src="https://picsum.photos/seed/zelda_map/400/250.jpg" alt="地图探索">
+                    </div>
+                    <div class="card-content">
+                        <span class="card-tag">基础</span>
+                        <h4 class="card-title">初始岛屿与道具获取</h4>
+                        <p class="card-desc">详细解析如何在初始岛屿生存，以及第一把剑和盾牌的获取位置，帮助你快速建立战斗力。</p>
+                        <a href="#" class="card-link">阅读全文 →</a>
+                    </div>
+                </article>
+
+                <article class="guide-card">
+                    <div class="card-img">
+                        <img src="https://picsum.photos/seed/zelda_dungeon/400/250.jpg" alt="迷宫攻略">
+                    </div>
+                    <div class="card-content">
+                        <span class="card-tag">进阶</span>
+                        <h4 class="card-title">全迷宫地图攻略</h4>
+                        <p class="card-desc">包含所有洞穴和城堡的详细地图指引，标示隐藏宝箱和BOSS战前的准备建议。</p>
+                        <a href="#" class="card-link">查看地图 →</a>
+                    </div>
+                </article>
+
+                <article class="guide-card">
+                    <div class="card-img">
+                        <img src="https://picsum.photos/seed/zelda_collect/400/250.jpg" alt="收集要素">
+                    </div>
+                    <div class="card-content">
+                        <span class="card-tag">收集</span>
+                        <h4 class="card-title">全图鉴收集指南</h4>
+                        <p class="card-desc">如何收集所有的海拉鲁卡片、图鉴物品以及击败达伊恩所需的特定条件。</p>
+                        <a href="#" class="card-link">开始收集 →</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="faq-section">
+            <div class="container faq-container">
+                <div class="section-title">
+                    <h2>常见问题解答</h2>
+                    <p>关于《塞尔达传说：灵魂轨迹》的疑问解答</p>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">《塞尔达传说：灵魂轨迹》是续作吗？</div>
+                    <div class="faq-answer">是的，这是《塞尔达传说：织梦岛》的完全重制版。它保留了原作的故事情节，但在画面、音效和操作上进行了全面升级，支持Joy-Con手柄的HD震动功能。</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">游戏支持哪些平台？</div>
+                    <div class="faq-answer">本作最初在Nintendo Switch平台上发售，支持掌机模式与电视模式。它同时也作为任天堂Switch Online会员服务的一部分，可以在Wii U和Nintendo 3DS上游玩。</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">如何解锁所有迷宫？</div>
+                    <div class="faq-answer">你需要收集岛屿上散落的钥匙，并完成特定的岛屿收集任务。随着剧情推进，新的区域和迷宫会自动解锁。</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">重制版相比原版有什么新内容？</div>
+                    <div class="faq-answer">除了更精细的3D画面和更加流畅的动画，重制版还增加了“海拉鲁卡片”收集系统，以及全新的角色互动和表情动作。</div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h4>关于本站</h4>
+                    <p style="color: #ccc; font-size: 0.9rem;">
+                        本站致力于为《塞尔达传说：灵魂轨迹》玩家提供最详尽的攻略、地图指引及游戏资讯。非任天堂官方网站。
+                    </p>
+                </div>
+                <div class="footer-col">
+                    <h4>快速导航</h4>
+                    <ul>
+                        <li><a href="#intro">游戏介绍</a></li>
+                        <li><a href="#guide">攻略中心</a></li>
+                        <li><a href="#faq">常见问题</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>友情链接</h4>
+                    <ul>
+                        <li><a href="#">任天堂官网</a></li>
+                        <li><a href="#">塞尔达传说Wiki</a></li>
+                        <li><a href="#">游戏社区</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 塞尔达传说灵魂轨迹攻略站. All Rights Reserved. 本页面为演示设计。</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // FAQ Accordion Logic
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqItems = document.querySelectorAll('.faq-item');
+            
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                question.addEventListener('click', () => {
+                    // Close all other items
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.classList.remove('active');
+                        }
+                    });
+                    // Toggle current item
+                    item.classList.toggle('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
