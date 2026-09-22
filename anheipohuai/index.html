@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="暗黑破坏神不朽官网与玩家指南 - 深入解析暗黑破坏神不朽游戏玩法、职业攻略、装备系统、圣物收集及最新活动资讯，为您提供一站式游戏参考。">
+    <meta name="keywords" content="暗黑破坏神不朽, 暗黑不朽, 暗黑破坏神手游, 暗黑破坏神不朽攻略, 暗黑不朽职业">
+    <title>暗黑破坏神不朽-沉浸式次世代暗黑手游攻略与资讯中心</title>
+    <style>
+        :root {
+            --bg-dark: #0d0d0d;
+            --bg-panel: #1a1a1a;
+            --bg-card: #252525;
+            --primary: #b8860b;
+            --primary-hover: #daa520;
+            --accent: #c0c0c0;
+            --text-main: #e0e0e0;
+            --text-muted: #a0a0a0;
+            --border: #333;
+            --font-stack: "Microsoft YaHei", "PingFang SC", sans-serif;
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-stack);
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Utility */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: var(--primary);
+            margin: 10px auto 0;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 24px;
+            background: var(--primary);
+            color: #000;
+            font-weight: bold;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: 1px solid var(--primary);
+        }
+
+        .btn:hover {
+            background: var(--primary-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(184, 134, 11, 0.3);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--primary);
+        }
+
+        .btn-outline:hover {
+            background: rgba(184, 134, 11, 0.1);
+            color: var(--primary-hover);
+        }
+
+        /* Header */
+        header {
+            background: rgba(13, 13, 13, 0.95);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 15px 0;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 900;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            font-size: 0.95rem;
+            color: var(--text-main);
+            font-weight: 500;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary);
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 15px;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 85vh;
+            background: linear-gradient(to bottom, rgba(13,13,13,0.3), var(--bg-dark)), url('https://picsum.photos/seed/diablo/1920/1080') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at center, transparent 0%, var(--bg-dark) 90%);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            padding: 20px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-shadow: 0 0 20px rgba(0,0,0,0.8);
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            margin-bottom: 40px;
+        }
+
+        /* News Grid */
+        .news-section {
+            padding: 80px 0;
+        }
+
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .news-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .news-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            border-color: var(--primary);
+        }
+
+        .news-img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            filter: grayscale(20%);
+            transition: filter 0.3s;
+        }
+
+        .news-card:hover .news-img {
+            filter: grayscale(0%);
+        }
+
+        .news-body {
+            padding: 20px;
+        }
+
+        .news-tag {
+            font-size: 0.75rem;
+            color: var(--primary);
+            text-transform: uppercase;
+            font-weight: bold;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .news-title {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+
+        .news-date {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        /* Guide Section */
+        .guide-section {
+            background: var(--bg-panel);
+            padding: 80px 0;
+        }
+
+        .guide-layout {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+        }
+
+        .guide-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .guide-item {
+            display: flex;
+            background: var(--bg-card);
+            padding: 20px;
+            border-left: 4px solid var(--primary);
+            align-items: center;
+            transition: background 0.3s;
+        }
+
+        .guide-item:hover {
+            background: #2f2f2f;
+        }
+
+        .guide-icon {
+            font-size: 2rem;
+            margin-right: 20px;
+            color: var(--text-muted);
+        }
+
+        .guide-content h3 {
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+        }
+
+        .guide-content p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .sidebar-widget {
+            background: var(--bg-card);
+            padding: 25px;
+            border-top: 3px solid var(--primary);
+        }
+
+        .widget-title {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 10px;
+        }
+
+        .rank-list li {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid #333;
+            font-size: 0.9rem;
+        }
+
+        .rank-list li:last-child {
+            border-bottom: none;
+        }
+
+        .rank-num {
+            color: var(--primary);
+            font-weight: bold;
+            width: 25px;
+        }
+
+        /* Footer */
+        footer {
+            background: #000;
+            padding: 60px 0 20px;
+            border-top: 1px solid var(--border);
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            color: var(--text-main);
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--primary);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #222;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            nav ul {
+                gap: 15px;
+                font-size: 0.9rem;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .guide-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .guide-item {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .guide-icon {
+                margin-right: 0;
+                margin-bottom: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-container">
+            <div class="logo">Diablo Immortal</div>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#news">最新资讯</a></li>
+                    <li><a href="#guide">职业攻略</a></li>
+                    <li><a href="#community">玩家社区</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <a href="#" class="btn btn-outline" style="padding: 5px 15px; font-size: 0.8rem;">登录</a>
+                <a href="#" class="btn" style="padding: 5px 15px; font-size: 0.8rem;">下载游戏</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1>暗黑破坏神不朽</h1>
+                <p>次世代暗黑手游，在移动端重温经典的暗黑世界。集结盟友，挑战不朽之王，获取传奇装备。</p>
+                <div style="display: flex; gap: 20px; justify-content: center;">
+                    <a href="#" class="btn">立即下载</a>
+                    <a href="#guide" class="btn btn-outline">查看攻略</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- News Section -->
+        <section id="news" class="news-section">
+            <div class="container">
+                <h2 class="section-title">最新资讯</h2>
+                <div class="news-grid">
+                    <article class="news-card">
+                        <img src="https://picsum.photos/seed/diablo1/400/250" alt="新赛季预告" class="news-img">
+                        <div class="news-body">
+                            <span class="news-tag">版本更新</span>
+                            <h3 class="news-title">全新赛季“暗影降临”即将开启，深渊副本难度升级</h3>
+                            <span class="news-date">2023-10-24</span>
+                        </div>
+                    </article>
+                    <article class="news-card">
+                        <img src="https://picsum.photos/seed/diablo2/400/250" alt="职业平衡调整" class="news-img">
+                        <div class="news-body">
+                            <span class="news-tag">平衡性调整</span>
+                            <h3 class="news-title">法师与武僧职业调整详解，PVP环境迎来巨变</h3>
+                            <span class="news-date">2023-10-22</span>
+                        </div>
+                    </article>
+                    <article class="news-card">
+                        <img src="https://picsum.photos/seed/diablo3/400/250" alt="限时活动" class="news-img">
+                        <div class="news-body">
+                            <span class="news-tag">限时活动</span>
+                            <h3 class="news-title">万圣节特别活动上线，稀有暗金装备掉落率提升</h3>
+                            <span class="news-date">2023-10-20</span>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Guide Section -->
+        <section id="guide" class="guide-section">
+            <div class="container">
+                <h2 class="section-title">新手入门与攻略</h2>
+                <div class="guide-layout">
+                    <div class="guide-list">
+                        <div class="guide-item">
+                            <div class="guide-icon">⚔️</div>
+                            <div class="guide-content">
+                                <h3>职业选择指南</h3>
+                                <p>战士、法师、武僧、猎魔人、死灵法师，六大职业各有千秋，了解他们的定位与连招技巧。</p>
+                            </div>
+                        </div>
+                        <div class="guide-item">
+                            <div class="guide-icon">💎</div>
+                            <div class="guide-content">
+                                <h3>圣物系统解析</h3>
+                                <p>圣物是提升战力的核心，如何通过共鸣与升级获得永久属性加成？新手必读圣物攻略。</p>
+                            </div>
+                        </div>
+                        <div class="guide-item">
+                            <div class="guide-icon">📜</div>
+                            <div class="guide-content">
+                                <h3>符文与装备词条</h3>
+                                <p>洗出完美的符文词条是变强的关键，装备洗练与符文镶嵌的优先级排序。</p>
+                            </div>
+                        </div>
+                        <div class="guide-item">
+                            <div class="guide-icon">🏰</div>
+                            <div class="guide-content">
+                                <h3>世界BOSS与地牢</h3>
+                                <p>组队挑战世界BOSS获取传奇装备，探索地牢获取稀有材料，提升团队配合。</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <aside class="sidebar">
+                        <div class="sidebar-widget">
+                            <h4 class="widget-title">热门攻略排行</h4>
+                            <ul class="rank-list">
+                                <li><span><span class="rank-num">1</span> 不朽战力快速提升技巧</span></li>
+                                <li><span><span class="rank-num">2</span> 传奇装备获取全渠道汇总</span></li>
+                                <li><span><span class="rank-num">3</span> PVP竞技场最强流派推荐</span></li>
+                                <li><span><span class="rank-num">4</span> 圣物共鸣属性搭配表</span></li>
+                                <li><span><span class="rank-num">5</span> 世界BOSS秒杀时间表</span></li>
+                            </ul>
+                        </div>
+                        <div class="sidebar-widget" style="margin-top: 30px;">
+                            <h4 class="widget-title">游戏下载</h4>
+                            <p style="font-size: 0.85rem; margin-bottom: 15px; color: #aaa;">iOS / Android 全平台互通，随时随地开启冒险。</p>
+                            <a href="#" class="btn" style="width: 100%; text-align: center;">前往下载</a>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>关于游戏</h4>
+                    <ul>
+                        <li><a href="#">游戏背景</a></li>
+                        <li><a href="#">开发团队</a></li>
+                        <li><a href="#">社区公约</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>支持中心</h4>
+                    <ul>
+                        <li><a href="#">常见问题</a></li>
+                        <li><a href="#">账号安全</a></li>
+                        <li><a href="#">联系客服</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>玩家社区</h4>
+                    <ul>
+                        <li><a href="#">官方论坛</a></li>
+                        <li><a href="#">Discord频道</a></li>
+                        <li><a href="#">玩家群组</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>关注我们</h4>
+                    <ul>
+                        <li><a href="#">微博</a></li>
+                        <li><a href="#">微信公众号</a></li>
+                        <li><a href="#">B站</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 暗黑破坏神不朽玩家社区. All rights reserved. 本站为非官方网站，仅提供攻略与资讯服务。</p>
+            </div>
+        </div>
+    </footer>
+
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</body>
+</html>
