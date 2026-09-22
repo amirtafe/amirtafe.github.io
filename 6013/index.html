@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>601399-东方证券股票行情分析、投资策略与财经资讯</title>
+    <meta name="description" content="东方证券(601399)股票深度分析页面。提供实时股价、K线图、财务指标、行业研报、投资策略及股市行情动态，帮助投资者做出更明智的决策。">
+    <meta name="keywords" content="601399, 东方证券, 股票代码, 股票行情, K线图, 财务数据, 投资策略">
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #004ea2; /* 东方证券蓝 */
+            --secondary-color: #0066cc;
+            --accent-color: #f0ad4e;
+            --bg-color: #f5f7fa;
+            --card-bg: #ffffff;
+            --text-main: #333333;
+            --text-light: #666666;
+            --border-color: #e1e4e8;
+            --spacing-unit: 16px;
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "PingFang SC", "Microsoft YaHei", sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--card-bg);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-inner {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+            height: 64px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            color: var(--text-main);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 24px;
+        }
+
+        nav a {
+            font-size: 16px;
+            color: var(--text-main);
+            font-weight: 500;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-color);
+        }
+
+        .search-box {
+            position: relative;
+        }
+
+        .search-box input {
+            padding: 8px 12px;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            font-size: 14px;
+            width: 200px;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            padding: 40px 0;
+        }
+
+        .hero-content {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .stock-title h1 {
+            font-size: 32px;
+            margin-bottom: 8px;
+        }
+
+        .stock-title p {
+            font-size: 16px;
+            opacity: 0.9;
+        }
+
+        .price-display {
+            display: flex;
+            align-items: baseline;
+            gap: 12px;
+        }
+
+        .current-price {
+            font-size: 48px;
+            font-weight: bold;
+        }
+
+        .price-change {
+            font-size: 20px;
+            padding: 4px 8px;
+            border-radius: 4px;
+        }
+
+        .price-up {
+            background-color: rgba(255,255,255,0.2);
+        }
+
+        .price-down {
+            background-color: rgba(255,255,255,0.2);
+        }
+
+        .market-stats {
+            display: flex;
+            gap: 30px;
+            font-size: 14px;
+            margin-top: 10px;
+            opacity: 0.9;
+        }
+
+        /* Main Content */
+        main {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 30px var(--spacing-unit);
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+        }
+
+        /* Left Column */
+        .main-column {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        section {
+            background: var(--card-bg);
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            padding: 24px;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 12px;
+        }
+
+        .section-title {
+            font-size: 20px;
+            font-weight: bold;
+            color: var(--text-main);
+            border-left: 4px solid var(--primary-color);
+            padding-left: 12px;
+        }
+
+        /* Chart Placeholder */
+        .chart-container {
+            width: 100%;
+            height: 350px;
+            background-color: #fafafa;
+            border: 1px dashed var(--border-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-light);
+            position: relative;
+        }
+        
+        .chart-overlay {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: rgba(255,255,255,0.9);
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 12px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        /* News List */
+        .news-list {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .news-item {
+            display: flex;
+            gap: 16px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .news-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .news-date {
+            font-size: 12px;
+            color: var(--text-light);
+            min-width: 60px;
+            text-align: right;
+        }
+
+        .news-content h3 {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+
+        .news-content h3:hover {
+            color: var(--primary-color);
+        }
+
+        .news-content p {
+            font-size: 14px;
+            color: var(--text-light);
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        /* Indicators Grid */
+        .indicators-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+        }
+
+        .indicator-card {
+            background-color: #f8f9fa;
+            padding: 16px;
+            border-radius: 6px;
+            text-align: center;
+        }
+
+        .indicator-label {
+            font-size: 12px;
+            color: var(--text-light);
+            margin-bottom: 8px;
+        }
+
+        .indicator-value {
+            font-size: 18px;
+            font-weight: bold;
+            color: var(--text-main);
+        }
+
+        /* Right Column */
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .sidebar-widget {
+            background: var(--card-bg);
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            padding: 20px;
+        }
+
+        .widget-title {
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 16px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .financial-list li {
+            margin-bottom: 12px;
+            font-size: 14px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .financial-list span.label {
+            color: var(--text-light);
+        }
+
+        .financial-list span.value {
+            font-weight: 500;
+        }
+
+        .action-btn {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            text-align: center;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 4px;
+            font-weight: bold;
+            margin-top: 10px;
+            transition: background-color 0.2s;
+        }
+
+        .action-btn:hover {
+            background-color: var(--secondary-color);
+        }
+
+        .tag-cloud {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tag {
+            background-color: #eef4fb;
+            color: var(--primary-color);
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 12px;
+            cursor: pointer;
+        }
+
+        .tag:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #2c3e50;
+            color: #bdc3c7;
+            padding: 40px 0;
+            margin-top: 40px;
+        }
+
+        .footer-content {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+        }
+
+        .footer-col h4 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a:hover {
+            color: white;
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 14px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-inner {
+                flex-direction: column;
+                height: auto;
+                padding: 10px;
+                gap: 10px;
+            }
+
+            nav ul {
+                gap: 12px;
+                font-size: 14px;
+            }
+
+            .market-stats {
+                flex-wrap: wrap;
+                gap: 15px;
+            }
+
+            main {
+                grid-template-columns: 1fr;
+            }
+
+            .indicators-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+
+            .stock-title h1 {
+                font-size: 24px;
+            }
+
+            .current-price {
+                font-size: 36px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="header-inner">
+        <div class="logo">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 3v18h18"/>
+                <path d="M18 17V9"/>
+                <path d="M13 17V5"/>
+                <path d="M8 17v-3"/>
+            </svg>
+            <span>股市数据中心</span>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#" class="active">首页</a></li>
+                <li><a href="#">行情</a></li>
+                <li><a href="#">资讯</a></li>
+                <li><a href="#">研报</a></li>
+                <li><a href="#">数据中心</a></li>
+            </ul>
+        </nav>
+        <div class="search-box">
+            <input type="text" placeholder="输入股票代码或名称">
+        </div>
+    </div>
+</header>
+
+<div class="hero">
+    <div class="hero-content">
+        <div class="stock-title">
+            <h1>601399 东方证券</h1>
+            <p>中国领先的综合性证券金融服务商，提供证券经纪、投资银行、资产管理等全方位金融服务。</p>
+        </div>
+        <div class="price-display">
+            <span class="current-price" id="price">9.58</span>
+            <span class="price-change price-up" id="change">+0.25 (+2.66%)</span>
+        </div>
+        <div class="market-stats">
+            <span>今开: <strong>9.35</strong></span>
+            <span>昨收: <strong>9.33</strong></span>
+            <span>最高: <strong>9.65</strong></span>
+            <span>最低: <strong>9.30</strong></span>
+            <span>成交量: <strong>12.5万手</strong></span>
+            <span>成交额: <strong>1.2亿</strong></span>
+        </div>
+    </div>
+</div>
+
+<main>
+    <!-- Left Column -->
+    <div class="main-column">
+        <!-- Chart Section -->
+        <section>
+            <div class="section-header">
+                <div class="section-title">分时走势图</div>
+                <div>
+                    <button style="background:none; border:none; color:var(--primary-color); cursor:pointer; font-size:14px;">日K</button>
+                    <button style="background:none; border:none; color:var(--text-light); cursor:pointer; font-size:14px; margin-left:8px;">周K</button>
+                    <button style="background:none; border:none; color:var(--text-light); cursor:pointer; font-size:14px; margin-left:8px;">月K</button>
+                </div>
+            </div>
+            <div class="chart-container">
+                <div class="chart-overlay">数据仅供演示，实际投资请以交易所为准</div>
+                <!-- Simulated Chart Visual -->
+                <svg width="100%" height="100%" viewBox="0 0 800 300" preserveAspectRatio="none">
+                    <defs>
+                        <linearGradient id="chartGradient" x1="0" x2="0" y1="0" y2="1">
+                            <stop offset="0%" stop-color="rgba(0, 78, 162, 0.2)"/>
+                            <stop offset="100%" stop-color="rgba(0, 78, 162, 0)"/>
+                        </linearGradient>
+                    </defs>
+                    <!-- Grid Lines -->
+                    <line x1="0" y1="75" x2="800" y2="75" stroke="#eee" stroke-width="1"/>
+                    <line x1="0" y1="150" x2="800" y2="150" stroke="#eee" stroke-width="1"/>
+                    <line x1="0" y1="225" x2="800" y2="225" stroke="#eee" stroke-width="1"/>
+                    
+                    <!-- Area -->
+                    <path d="M0,250 L50,240 L100,245 L150,200 L200,210 L250,180 L300,190 L350,160 L400,170 L450,140 L500,150 L550,120 L600,130 L650,100 L700,110 L750,90 L800,80 L800,300 L0,300 Z" fill="url(#chartGradient)"/>
+                    
+                    <!-- Line -->
+                    <path d="M0,250 L50,240 L100,245 L150,200 L200,210 L250,180 L300,190 L350,160 L400,170 L450,140 L500,150 L550,120 L600,130 L650,100 L700,110 L750,90 L800,80" fill="none" stroke="#004ea2" stroke-width="2"/>
+                    
+                    <!-- Current Price Line -->
+                    <line x1="0" y1="80" x2="800" y2="80" stroke="#f0ad4e" stroke-width="1" stroke-dasharray="4"/>
+                    <circle cx="800" cy="80" r="4" fill="#f0ad4e"/>
+                </svg>
+            </div>
+        </section>
+
+        <!-- News Section -->
+        <section>
+            <div class="section-header">
+                <div class="section-title">最新资讯</div>
+                <a href="#" style="font-size:14px; color:var(--primary-color);">更多 &gt;</a>
+            </div>
+            <div class="news-list">
+                <article class="news-item">
+                    <div class="news-date">10-24</div>
+                    <div class="news-content">
+                        <h3>东方证券发布2023年第三季度财报，净利润同比增长15%</h3>
+                        <p>公司财报显示，受益于财富管理业务的稳健增长，投行业务收入也保持稳步提升，整体经营业绩符合市场预期。</p>
+                    </div>
+                </article>
+                <article class="news-item">
+                    <div class="news-date">10-22</div>
+                    <div class="news-content">
+                        <h3>东方证券荣获“年度最佳财富管理机构”奖项</h3>
+                        <p>在近日举办的2023中国金融业年度峰会上，东方证券凭借卓越的客户服务和数字化投顾能力，荣膺该奖项。</p>
+                    </div>
+                </article>
+                <article class="news-item">
+                    <div class="news-date">10-20</div>
+                    <div class="news-content">
+                        <h3>东方证券开展投资者教育活动，普及金融知识</h3>
+                        <p>为进一步保护投资者权益，东方证券在全国各地分支机构举办了多场线下投资者教育活动，强调理性投资。</p>
+                    </div>
+                </article>
+                <article class="news-item">
+                    <div class="news-date">10-18</div>
+                    <div class="news-content">
+                        <h3>东方证券与多家科技企业达成战略合作</h3>
+                        <p>双方将在金融科技、大数据风控等领域展开深入合作，共同探索数字化转型的新路径。</p>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </div>
+
+    <!-- Right Column -->
+    <aside class="sidebar">
+        <!-- Quick Info -->
+        <div class="sidebar-widget">
+            <h3 class="widget-title">核心指标</h3>
+            <div class="indicators-grid">
+                <div class="indicator-card">
+                    <div class="indicator-label">市盈率(PE)</div>
+                    <div class="indicator-value">15.2</div>
+                </div>
+                <div class="indicator-card">
+                    <div class="indicator-label">市净率(PB)</div>
+                    <div class="indicator-value">0.98</div>
+                </div>
+                <div class="indicator-card">
+                    <div class="indicator-label">总市值</div>
+                    <div class="indicator-value">680亿</div>
+                </div>
+                <div class="indicator-card">
+                    <div class="indicator-label">流通市值</div>
+                    <div class="indicator-value">620亿</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Financial Data -->
+        <div class="sidebar-widget">
+            <h3 class="widget-title">财务数据</h3>
+            <ul class="financial-list">
+                <li>
+                    <span class="label">每股收益</span>
+                    <span class="value">0.45 元</span>
+                </li>
+                <li>
+                    <span class="label">每股净资产</span>
+                    <span class="value">8.12 元</span>
+                </li>
+                <li>
+                    <span class="label">净资产收益率</span>
+                    <span class="value">5.8%</span>
+                </li>
+                <li>
+                    <span class="label">股息率</span>
+                    <span class="value">3.2%</span>
+                </li>
+                <li>
+                    <span class="label">季度营收</span>
+                    <span class="value">42.5 亿</span>
+                </li>
+                <li>
+                    <span class="label">净利润</span>
+                    <span class="value">8.1 亿</span>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Related Tags -->
+        <div class="sidebar-widget">
+            <h3 class="widget-title">相关标签</h3>
+            <div class="tag-cloud">
+                <a href="#" class="tag">券商板块</a>
+                <a href="#" class="tag">金融股</a>
+                <a href="#" class="tag">沪市主板</a>
+                <a href="#" class="tag">上证50</a>
+                <a href="#" class="tag">数字化转型</a>
+            </div>
+        </div>
+
+        <!-- CTA -->
+        <div class="sidebar-widget" style="background: linear-gradient(to bottom right, #004ea2, #003366); color: white;">
+            <h3 class="widget-title" style="border-color: rgba(255,255,255,0.2);">立即开户</h3>
+            <p style="font-size: 13px; margin-bottom: 15px; opacity: 0.9;">低佣金费率，专业投顾服务，助您投资更轻松。</p>
+            <a href="#" class="action-btn" style="background-color: white; color: var(--primary-color);">立即申请</a>
+        </div>
+    </aside>
+</main>
+
+<footer>
+    <div class="footer-content">
+        <div class="footer-col">
+            <h4>关于我们</h4>
+            <ul>
+                <li><a href="#">公司简介</a></li>
+                <li><a href="#">发展历程</a></li>
+                <li><a href="#">企业文化</a></li>
+                <li><a href="#">投资者关系</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>产品服务</h4>
+            <ul>
+                <li><a href="#">证券交易</a></li>
+                <li><a href="#">基金理财</a></li>
+                <li><a href="#">融资融券</a></li>
+                <li><a href="#">期货业务</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>风险提示</h4>
+            <p style="font-size: 12px; line-height: 1.8;">
+                市场有风险，投资需谨慎。本页面展示的数据仅为模拟演示，不构成任何投资建议。请根据自身风险承受能力理性决策。
+            </p>
+        </div>
+    </div>
+    <div class="copyright">
+        <p>&copy; 2023 股市数据中心演示站 版权所有</p>
+    </div>
+</footer>
+
+</body>
+  </html>
