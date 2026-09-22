@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>花都特工-热血动作漫画全集在线阅读与剧情解析</title>
+    <meta name="description" content="花都特工漫画全集在线阅读，讲述主角在繁华都市中潜伏与战斗的故事。提供高清大图、剧情梗概、角色介绍及最新章节更新资讯。">
+    <meta name="keywords" content="花都特工, 漫画, 在线阅读, 动作漫画, 都市战斗, 漫画推荐">
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #d32f2f; /* 热血红 */
+            --secondary-color: #212121; /* 深黑 */
+            --accent-color: #ffca28; /* 强调黄 */
+            --bg-color: #f5f5f5;
+            --card-bg: #ffffff;
+            --text-main: #333333;
+            --text-sub: #757575;
+            --spacing-unit: 16px;
+            --container-width: 1200px;
+            --border-radius: 8px;
+            --box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans SC", sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* 布局容器 */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        /* 头部导航 */
+        header {
+            background-color: var(--secondary-color);
+            color: #fff;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            color: #fff;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 24px;
+        }
+
+        .nav-menu a {
+            color: #e0e0e0;
+            font-weight: 500;
+            font-size: 15px;
+        }
+
+        .nav-menu a:hover, .nav-menu a.active {
+            color: var(--primary-color);
+        }
+
+        .search-box {
+            display: flex;
+            background: rgba(255,255,255,0.1);
+            border-radius: 20px;
+            padding: 4px 12px;
+        }
+
+        .search-box input {
+            background: transparent;
+            border: none;
+            color: #fff;
+            outline: none;
+            width: 150px;
+            font-size: 14px;
+        }
+
+        .search-box button {
+            background: none;
+            border: none;
+            color: #fff;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        /* Hero 区域 */
+        .hero {
+            background: linear-gradient(135deg, #1a1a1a 0%, #424242 100%);
+            color: #fff;
+            padding: 60px 0;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 42px;
+            margin-bottom: 16px;
+            background: linear-gradient(to right, #ff8a80, #ff5252);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 900;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: #ccc;
+            margin-bottom: 30px;
+            line-height: 1.8;
+        }
+
+        .hero-tags {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            background: rgba(255,255,255,0.15);
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-size: 12px;
+            color: #ddd;
+        }
+
+        .btn-read {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: #fff;
+            padding: 12px 36px;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 16px;
+            margin-top: 20px;
+            box-shadow: 0 4px 15px rgba(211, 47, 47, 0.4);
+        }
+
+        .btn-read:hover {
+            background-color: #b71c1c;
+            transform: translateY(-2px);
+        }
+
+        /* 通用 Section 样式 */
+        section {
+            padding: 40px 0;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 24px;
+            border-left: 4px solid var(--primary-color);
+            padding-left: 16px;
+        }
+
+        .section-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--secondary-color);
+        }
+
+        .section-more {
+            font-size: 14px;
+            color: var(--text-sub);
+        }
+
+        .section-more a {
+            color: var(--primary-color);
+        }
+
+        /* 章节列表 */
+        .chapter-list {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            overflow: hidden;
+        }
+
+        .chapter-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 20px;
+            border-bottom: 1px solid #eee;
+            transition: background 0.2s;
+        }
+
+        .chapter-item:last-child {
+            border-bottom: none;
+        }
+
+        .chapter-item:hover {
+            background-color: #fafafa;
+        }
+
+        .chapter-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .chapter-name {
+            font-weight: 600;
+            font-size: 15px;
+            color: var(--text-main);
+        }
+
+        .chapter-date {
+            font-size: 12px;
+            color: var(--text-sub);
+            margin-top: 4px;
+        }
+
+        .chapter-link {
+            padding: 8px 16px;
+            background-color: #f0f0f0;
+            color: var(--text-main);
+            border-radius: 4px;
+            font-size: 13px;
+            font-weight: 500;
+        }
+
+        .chapter-link:hover {
+            background-color: var(--primary-color);
+            color: #fff;
+        }
+
+        /* 漫画卡片网格 */
+        .comic-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+            gap: 20px;
+        }
+
+        .comic-card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+        }
+
+        .comic-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+        }
+
+        .card-cover {
+            width: 100%;
+            height: 220px;
+            background-color: #ddd;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card-cover img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .card-badge {
+            position: absolute;
+            top: 8px;
+            left: 8px;
+            background-color: var(--primary-color);
+            color: #fff;
+            font-size: 10px;
+            padding: 2px 6px;
+            border-radius: 2px;
+            font-weight: 700;
+        }
+
+        .card-info {
+            padding: 12px;
+        }
+
+        .card-title {
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 4px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .card-meta {
+            font-size: 12px;
+            color: var(--text-sub);
+            display: flex;
+            justify-content: space-between;
+        }
+
+        /* 角色介绍 */
+        .character-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 24px;
+        }
+
+        .char-card {
+            text-align: center;
+        }
+
+        .char-avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin: 0 auto 12px;
+            background-color: #eee;
+            overflow: hidden;
+            border: 3px solid var(--primary-color);
+        }
+
+        .char-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .char-name {
+            font-weight: 700;
+            font-size: 16px;
+            margin-bottom: 4px;
+        }
+
+        .char-role {
+            font-size: 12px;
+            color: var(--text-sub);
+            background: #eee;
+            padding: 2px 8px;
+            border-radius: 10px;
+            display: inline-block;
+        }
+
+        /* 互动区域/广告位 */
+        .promo-banner {
+            background: linear-gradient(to right, #333, #000);
+            color: #fff;
+            padding: 40px 20px;
+            border-radius: var(--border-radius);
+            text-align: center;
+            margin: 40px 0;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .promo-text h3 {
+            font-size: 20px;
+            margin-bottom: 8px;
+        }
+
+        .promo-text p {
+            font-size: 14px;
+            color: #aaa;
+        }
+
+        .promo-btn {
+            background: var(--primary-color);
+            color: #fff;
+            padding: 10px 24px;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+
+        /* 页脚 */
+        footer {
+            background-color: var(--secondary-color);
+            color: #888;
+            padding: 40px 0 20px;
+            margin-top: 60px;
+            font-size: 14px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            color: #fff;
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--primary-color);
+        }
+
+        .copyright {
+            text-align: center;
+            border-top: 1px solid #333;
+            padding-top: 20px;
+        }
+
+        /* 响应式调整 */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none; /* 移动端简化：隐藏菜单 */
+            }
+            
+            .search-box {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .comic-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
+            }
+
+            .card-cover {
+                height: 180px;
+            }
+
+            .container {
+                padding: 0 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 顶部导航 -->
+    <header>
+        <div class="container header-inner">
+            <a href="#" class="logo">
+                <span>花都特工</span>
+            </a>
+            <nav class="nav-menu">
+                <a href="#" class="active">首页</a>
+                <a href="#">剧情简介</a>
+                <a href="#">角色图鉴</a>
+                <a href="#">热门推荐</a>
+                <a href="#">排行榜</a>
+            </nav>
+            <div class="search-box">
+                <input type="text" placeholder="搜索章节或角色...">
+                <button>🔍</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero 首屏 -->
+    <section class="hero">
+        <div class="container hero-content">
+            <h1>花都特工：都市暗战与荣耀</h1>
+            <p>在这座光鲜亮丽的花都之下，隐藏着不为人知的秘密与博弈。跟随主角的脚步，揭开层层迷雾，体验紧张刺激的特工生存法则。</p>
+            <div class="hero-tags">
+                <span class="tag">动作</span>
+                <span class="tag">都市</span>
+                <span class="tag">热血</span>
+                <span class="tag">悬疑</span>
+            </div>
+            <a href="#chapter-list" class="btn-read">立即开始阅读</a>
+        </div>
+    </section>
+
+    <!-- 章节更新列表 -->
+    <section class="container">
+        <div class="section-header">
+            <h2 class="section-title">最新章节</h2>
+            <a href="#" class="section-more">查看全部 &rarr;</a>
+        </div>
+        <div class="chapter-list" id="chapter-list">
+            <div class="chapter-item">
+                <div class="chapter-info">
+                    <span class="chapter-name">第 452 话：最后的防线</span>
+                    <span class="chapter-date">2023-10-24</span>
+                </div>
+                <a href="#" class="chapter-link">阅读</a>
+            </div>
+            <div class="chapter-item">
+                <div class="chapter-info">
+                    <span class="chapter-name">第 451 话：暗夜潜行</span>
+                    <span class="chapter-date">2023-10-20</span>
+                </div>
+                <a href="#" class="chapter-link">阅读</a>
+            </div>
+            <div class="chapter-item">
+                <div class="chapter-info">
+                    <span class="chapter-name">第 450 话：背叛与信任</span>
+                    <span class="chapter-date">2023-10-15</span>
+                </div>
+                <a href="#" class="chapter-link">阅读</a>
+            </div>
+            <div class="chapter-item">
+                <div class="chapter-info">
+                    <span class="chapter-name">第 449 话：代号“幽灵”</span>
+                    <span class="chapter-date">2023-10-10</span>
+                </div>
+                <a href="#" class="chapter-link">阅读</a>
+            </div>
+            <div class="chapter-item">
+                <div class="chapter-info">
+                    <span class="chapter-name">第 448 话：雨夜突袭</span>
+                    <span class="chapter-date">2023-10-05</span>
+                </div>
+                <a href="#" class="chapter-link">阅读</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 角色图鉴 -->
+    <section class="container">
+        <div class="section-header">
+            <h2 class="section-title">核心角色</h2>
+        </div>
+        <div class="character-grid">
+            <div class="char-card">
+                <div class="char-avatar">
+                    <img src="https://picsum.photos/seed/agent1/200/200" alt="主角头像">
+                </div>
+                <div class="char-name">林萧</div>
+                <div class="char-role">男主角 / 特工</div>
+            </div>
+            <div class="char-card">
+                <div class="char-avatar">
+                    <img src="https://picsum.photos/seed/agent2/200/200" alt="女主角头像">
+                </div>
+                <div class="char-name">苏雅</div>
+                <div class="char-role">情报分析师</div>
+            </div>
+            <div class="char-card">
+                <div class="char-avatar">
+                    <img src="https://picsum.photos/seed/agent3/200/200" alt="反派头像">
+                </div>
+                <div class="char-name">赵天霸</div>
+                <div class="char-role">黑帮教父</div>
+            </div>
+            <div class="char-card">
+                <div class="char-avatar">
+                    <img src="https://picsum.photos/seed/agent4/200/200" alt="导师头像">
+                </div>
+                <div class="char-name">老K</div>
+                <div class="char-role">教官 / 前特工</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 热门推荐 -->
+    <section class="container">
+        <div class="section-header">
+            <h2 class="section-title">热门推荐</h2>
+            <a href="#" class="section-more">更多漫画 &rarr;</a>
+        </div>
+        <div class="comic-grid">
+            <!-- 模拟卡片 1 -->
+            <div class="comic-card">
+                <div class="card-cover">
+                    <img src="https://picsum.photos/seed/comic1/300/400" alt="漫画封面">
+                    <span class="card-badge">热门</span>
+                </div>
+                <div class="card-info">
+                    <h3 class="card-title">绝地反击</h3>
+                    <div class="card-meta">
+                        <span>动作</span>
+                        <span>连载中</span>
+                    </div>
+                </div>
+            </div>
+            <!-- 模拟卡片 2 -->
+            <div class="comic-card">
+                <div class="card-cover">
+                    <img src="https://picsum.photos/seed/comic2/300/400" alt="漫画封面">
+                </div>
+                <div class="card-info">
+                    <h3 class="card-title">都市修仙录</h3>
+                    <div class="card-meta">
+                        <span>玄幻</span>
+                        <span>完结</span>
+                    </div>
+                </div>
+            </div>
+            <!-- 模拟卡片 3 -->
+            <div class="comic-card">
+                <div class="card-cover">
+                    <img src="https://picsum.photos/seed/comic3/300/400" alt="漫画封面">
+                    <span class="card-badge">新番</span>
+                </div>
+                <div class="card-info">
+                    <h3 class="card-title">赛博侦探</h3>
+                    <div class="card-meta">
+                        <span>科幻</span>
+                        <span>连载中</span>
+                    </div>
+                </div>
+            </div>
+            <!-- 模拟卡片 4 -->
+            <div class="comic-card">
+                <div class="card-cover">
+                    <img src="https://picsum.photos/seed/comic4/300/400" alt="漫画封面">
+                </div>
+                <div class="card-info">
+                    <h3 class="card-title">废土求生</h3>
+                    <div class="card-meta">
+                        <span>冒险</span>
+                        <span>连载中</span>
+                    </div>
+                </div>
+            </div>
+            <!-- 模拟卡片 5 -->
+            <div class="comic-card">
+                <div class="card-cover">
+                    <img src="https://picsum.photos/seed/comic5/300/400" alt="漫画封面">
+                </div>
+                <div class="card-info">
+                    <h3 class="card-title">暗夜猎手</h3>
+                    <div class="card-meta">
+                        <span>悬疑</span>
+                        <span>完结</span>
+                    </div>
+                </div>
+            </div>
+            <!-- 模拟卡片 6 -->
+            <div class="comic-card">
+                <div class="card-cover">
+                    <img src="https://picsum.photos/seed/comic6/300/400" alt="漫画封面">
+                </div>
+                <div class="card-info">
+                    <h3 class="card-title">机械战魂</h3>
+                    <div class="card-meta">
+                        <span>机甲</span>
+                        <span>连载中</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 宣传横幅 -->
+    <div class="container">
+        <div class="promo-banner">
+            <div class="promo-text">
+                <h3>加入我们的阅读社区</h3>
+                <p>第一时间获取《花都特工》最新更新，与千万漫迷讨论剧情。</p>
+            </div>
+            <a href="#" class="promo-btn">立即加入</a>
+        </div>
+    </div>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>关于花都特工</h4>
+                    <p style="line-height: 1.8;">专注于提供高清、流畅的漫画阅读体验。这里是《花都特工》粉丝的聚集地，为您带来最优质的二次元内容。</p>
+                </div>
+                <div class="footer-col">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="#">网站地图</a></li>
+                        <li><a href="#">排行榜</a></li>
+                        <li><a href="#">标签分类</a></li>
+                        <li><a href="#">排行榜</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>帮助中心</h4>
+                    <ul>
+                        <li><a href="#">如何阅读</a></li>
+                        <li><a href="#">版权声明</a></li>
+                        <li><a href="#">联系我们</a></li>
+                        <li><a href="#">意见反馈</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>关注我们</h4>
+                    <ul>
+                        <li><a href="#">微信公众号</a></li>
+                        <li><a href="#">微博</a></li>
+                        <li><a href="#">粉丝群</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 花都特工漫画网 版权所有 | 仅供展示使用</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+              </html>
