@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="gtalk下载 - 提供Google Talk客户端的历史版本下载与使用指南。包含XMPP协议配置、跨平台兼容性说明及替代通讯软件推荐。">
+    <meta name="keywords" content="gtalk下载, Google Talk, XMPP客户端, 跨平台聊天软件, 老牌通讯工具">
+    <title>gtalk下载 - 历史版本获取与XMPP协议通讯指南</title>
+    <style>
+        :root {
+            --primary-color: #1a73e8;
+            --secondary-color: #34a853;
+            --text-main: #202124;
+            --text-secondary: #5f6368;
+            --bg-body: #f8f9fa;
+            --bg-card: #ffffff;
+            --border-color: #dadce0;
+            --spacing-unit: 16px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-main);
+            background-color: var(--bg-body);
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--primary-color);
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        /* Header */
+        header {
+            background: var(--bg-card);
+            border-bottom: 1px solid var(--border-color);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-main);
+        }
+
+        .logo span {
+            color: var(--primary-color);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+
+        nav a {
+            color: var(--text-main);
+            font-weight: 500;
+        }
+
+        nav a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #1a73e8 0%, #4285f4 100%);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+
+        .hero-btn {
+            display: inline-block;
+            background-color: #ffffff;
+            color: var(--primary-color);
+            padding: 12px 30px;
+            border-radius: 4px;
+            font-weight: 600;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .hero-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        /* Main Content Grid */
+        .content-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        @media (max-width: 768px) {
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+            .header-content {
+                flex-direction: column;
+                gap: 15px;
+            }
+            .hero h1 {
+                font-size: 2rem;
+            }
+        }
+
+        /* Section Styles */
+        section {
+            background: var(--bg-card);
+            border-radius: 8px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--bg-body);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        h2::before {
+            content: '';
+            display: block;
+            width: 6px;
+            height: 24px;
+            background-color: var(--primary-color);
+            border-radius: 3px;
+        }
+
+        /* Download Box */
+        .download-box {
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            background-color: #fafafa;
+        }
+
+        .download-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .file-info {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .file-icon {
+            width: 40px;
+            height: 40px;
+            background-color: #e8f0fe;
+            color: var(--primary-color);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 0.8rem;
+        }
+
+        .btn-download {
+            display: block;
+            width: 100%;
+            background-color: var(--secondary-color);
+            color: white;
+            text-align: center;
+            padding: 12px;
+            border-radius: 4px;
+            font-weight: 600;
+            transition: background 0.2s;
+        }
+
+        .btn-download:hover {
+            background-color: #2d9147;
+        }
+
+        .note {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-top: 10px;
+            background: #fff8e1;
+            padding: 10px;
+            border-radius: 4px;
+            border-left: 3px solid #ffc107;
+        }
+
+        /* List Styles */
+        .feature-list {
+            list-style: none;
+        }
+
+        .feature-list li {
+            padding: 12px 0;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+
+        .feature-list li:last-child {
+            border-bottom: none;
+        }
+
+        .check-icon {
+            color: var(--secondary-color);
+            font-weight: bold;
+            font-size: 1.2rem;
+            line-height: 1;
+        }
+
+        /* Sidebar */
+        .sidebar-widget {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 6px;
+            margin-bottom: 20px;
+        }
+
+        .sidebar-widget h3 {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+        }
+
+        .compatibility-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tag {
+            background: #e8eaed;
+            color: var(--text-secondary);
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+        }
+
+        /* Table */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        th, td {
+            text-align: left;
+            padding: 12px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        th {
+            background-color: #f8f9fa;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        td {
+            font-size: 0.95rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #202124;
+            color: #bdc1c6;
+            padding: 40px 0;
+            margin-top: 60px;
+            font-size: 0.9rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+        }
+
+        .footer-col h4 {
+            color: white;
+            margin-bottom: 15px;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col li {
+            margin-bottom: 8px;
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #3c4043;
+        }
+
+        /* FAQ Accordion */
+        .faq-item {
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .faq-question {
+            width: 100%;
+            text-align: left;
+            background: none;
+            border: none;
+            padding: 15px 0;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            color: var(--text-main);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .faq-question:hover {
+            color: var(--primary-color);
+        }
+
+        .faq-answer {
+            display: none;
+            padding-bottom: 15px;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+        
+        .faq-icon {
+            transition: transform 0.3s;
+        }
+        
+        .faq-item.active .faq-icon {
+            transform: rotate(180deg);
+        }
+
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container header-content">
+        <div class="logo">Gtalk<span>Guide</span></div>
+        <nav>
+            <ul>
+                <li><a href="#download">下载中心</a></li>
+                <li><a href="#guide">使用指南</a></li>
+                <li><a href="#compatibility">兼容性</a></li>
+                <li><a href="#faq">常见问题</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<main class="container">
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Gtalk 下载与通讯指南</h1>
+        <p>Google Talk 是基于 XMPP 协议的即时通讯工具。由于 Google 已停止服务，本站提供历史版本下载及 XMPP 协议配置教程，帮助您建立安全、加密的跨平台通讯网络。</p>
+        <a href="#download" class="hero-btn">获取历史版本</a>
+    </section>
+
+    <div class="content-grid">
+        <!-- Main Content -->
+        <div class="main-column">
+            
+            <!-- Download Section -->
+            <section id="download">
+                <h2>客户端下载</h2>
+                <div class="download-box">
+                    <div class="download-title">Google Talk 客户端 (Windows)</div>
+                    <div class="file-info">
+                        <div class="file-icon">EXE</div>
+                        <div>
+                            <div>google-talk-setup.exe</div>
+                            <div>版本：1.3.10.8 | 大小：约 4.5 MB</div>
+                        </div>
+                    </div>
+                    <a href="#" class="btn-download" onclick="alert('模拟下载：请在实际部署时替换为真实的文件下载链接。'); return false;">开始下载</a>
+                    <div class="note">
+                        <strong>注意：</strong>该版本为历史存档。安装前请确保您的 Windows 系统为较旧的版本（如 Windows 7 或 XP），新版系统可能存在兼容性问题。
+                    </div>
+                </div>
+
+                <div class="download-box">
+                    <div class="download-title">Google Talk Linux 客户端</div>
+                    <div class="file-info">
+                        <div class="file-icon">DEB</div>
+                        <div>
+                            <div>google-talk.deb</div>
+                            <div>适用于 Debian/Ubuntu 系统包</div>
+                        </div>
+                    </div>
+                    <a href="#" class="btn-download" onclick="alert('模拟下载：请在实际部署时替换为真实的文件下载链接。'); return false;">下载 DEB 包</a>
+                </div>
+            </section>
+
+            <!-- Features Section -->
+            <section id="guide">
+                <h2>核心功能与特性</h2>
+                <ul class="feature-list">
+                    <li>
+                        <span class="check-icon">✓</span>
+                        <div>
+                            <strong>XMPP 协议支持</strong>
+                            <p style="color: var(--text-secondary); font-size: 0.9rem;">完全兼容 XMPP 标准，可与支持该协议的其他客户端（如 Pidgin、Miranda、Digsby）互通。</p>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="check-icon">✓</span>
+                        <div>
+                            <strong>集成 Gmail 邮件通知</strong>
+                            <p style="color: var(--text-secondary); font-size: 0.9rem;">实时接收 Gmail 邮件到达提醒，无需频繁刷新网页。</p>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="check-icon">✓</span>
+                        <div>
+                            <strong>简洁的聊天界面</strong>
+                            <p style="color: var(--text-secondary); font-size: 0.9rem;">专注于即时通讯体验，支持多标签页聊天，资源占用低。</p>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="check-icon">✓</span>
+                        <div>
+                            <strong>基于 TLS 的加密</strong>
+                            <p style="color: var(--text-secondary); font-size: 0.9rem;">支持 SSL/TLS 连接，确保通信内容的安全性。</p>
+                        </div>
+                    </li>
+                </ul>
+            </section>
+
+            <!-- Configuration Table -->
+            <section id="guide">
+                <h2>账号配置指南</h2>
+                <p style="margin-bottom: 15px;">如果您使用的是第三方 XMPP 客户端，请参考以下配置信息：</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>设置项</th>
+                            <th>填写内容</th>
+                            <th>说明</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>用户名</td>
+                            <td>您的 Gmail 地址</td>
+                            <td>例如：user@gmail.com</td>
+                        </tr>
+                        <tr>
+                            <td>域名</td>
+                            <td>gmail.com</td>
+                            <td>Google Talk 服务器域名</td>
+                        </tr>
+                        <tr>
+                            <td>服务器</td>
+                            <td>talk.google.com</td>
+                            <td>或 ssl://talk.google.com</td>
+                        </tr>
+                        <tr>
+                            <td>端口</td>
+                            <td>5223</td>
+                            <td>用于 SSL 连接</td>
+                        </tr>
+                        <tr>
+                            <td>密码</td>
+                            <td>您的 Google 密码</td>
+                            <td>部分客户端支持使用 App Passwords</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+        </div>
+
+        <!-- Sidebar -->
+        <aside class="sidebar-column">
+            
+            <!-- Compatibility Widget -->
+            <div class="sidebar-widget" id="compatibility">
+                <h3>兼容性说明</h3>
+                <div class="compatibility-list">
+                    <span class="tag">Windows XP/Vista</span>
+                    <span class="tag">Windows 7</span>
+                    <span class="tag">Linux (Debian/Ubuntu)</span>
+                    <span class="tag">Mac OS X (需 Wine)</span>
+                    <span class="tag">Android (需第三方客户端)</span>
+                    <span class="tag">iOS (需第三方客户端)</span>
+                </div>
+                <p style="margin-top: 15px; font-size: 0.9rem; color: var(--text-secondary);">
+                    Google 官方已停止维护 Google Talk 服务。如需在新设备上使用，建议迁移至支持 XMPP 协议的现代客户端（如 Conversations, Monal）。
+                </p>
+            </div>
+
+            <!-- Alternatives Widget -->
+            <div class="sidebar-widget">
+                <h3>现代替代方案</h3>
+                <ul class="feature-list" style="padding-left: 20px;">
+                    <li style="padding-left: 0; border: none;">
+                        <a href="#">Conversations (Android)</a>
+                    </li>
+                    <li style="padding-left: 0; border: none;">
+                        <a href="#">Monal (iOS/Android/Mac)</a>
+                    </li>
+                    <li style="padding-left: 0; border: none;">
+                        <a href="#">Pidgin (跨平台)</a>
+                    </li>
+                    <li style="padding-left: 0; border: none;">
+                        <a href="#">Dino (Linux)</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- FAQ Widget -->
+            <div class="sidebar-widget" id="faq">
+                <h3>常见问题 (FAQ)</h3>
+                
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Google Talk 现在还能登录吗？
+                        <span class="faq-icon">▼</span>
+                    </button>
+                    <div class="faq-answer">
+                        Google 已关闭 Google Talk 服务。您无法直接使用官方服务器登录。如果您有旧账号，可以尝试使用支持 XMPP 协议的第三方客户端进行连接，但存在服务不稳定的风险。
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        下载的客户端安全吗？
+                        <span class="faq-icon">▼</span>
+                    </button>
+                    <div class="faq-answer">
+                        本站提供的历史版本文件经过整理。由于软件发布时间较早，请确保您的电脑已安装最新的杀毒软件，并在隔离环境中进行安装，以防范潜在的恶意代码。
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        如何找回丢失的聊天记录？
+                        <span class="faq-icon">▼</span>
+                    </button>
+                    <div class="faq-answer">
+                        Google Talk 本身不提供云端备份。聊天记录仅保存在本地电脑中。如果重装系统未备份，记录通常无法恢复。建议使用支持数据备份的第三方客户端。
+                    </div>
+                </div>
+
+            </div>
+
+        </aside>
+    </div>
+
+</main>
+
+<footer>
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-col">
+                <h4>关于 Gtalk 下载</h4>
+                <p>本站致力于为技术爱好者和旧设备用户提供 Google Talk 历史版本的资源整理与使用支持，推广 XMPP 协议的开放通讯理念。</p>
+            </div>
+            <div class="footer-col">
+                <h4>快速链接</h4>
+                <ul>
+                    <li><a href="#">历史版本归档</a></li>
+                    <li><a href="#">XMPP 协议文档</a></li>
+                    <li><a href="#">隐私政策</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>联系方式</h4>
+                <ul>
+                    <li><a href="#">提交错误报告</a></li>
+                    <li><a href="#">建议与反馈</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2023 Gtalk Guide. 保留所有权利。本网站仅提供技术交流与资源整理服务，不隶属于 Google LLC。</p>
+        </div>
+    </div>
+</footer>
+
+<script>
+    // Simple FAQ Accordion Logic
+    document.addEventListener('DOMContentLoaded', function() {
+        const faqItems = document.querySelectorAll('.faq-item');
+
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            question.addEventListener('click', () => {
+                // Close other items
+                faqItems.forEach(otherItem => {
+                    if (otherItem !== item) {
+                        otherItem.classList.remove('active');
+                    }
+                });
+                // Toggle current item
+                item.classList.toggle('active');
+            });
+        });
+    });
+</script>
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</body>
+</html>
